@@ -12,11 +12,6 @@
       .state('app.dashboard', {
         url: '/dashboard',
         templateUrl: 'app/modules/dashboard/dashboard.html',
-        resolve: {
-          posts: ['postResource', function(postResource) {
-            return postResource.query().$promise;
-          }]
-        },
         controller: 'dashboardController',
         controllerAs: 'vm'
       })

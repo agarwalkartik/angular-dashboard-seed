@@ -15,9 +15,9 @@
 
     this.login = function() {
       authenticationService.login(vm.user)
-        .then(null, function(err) {
-          vm.responseErrorMsg = err.data.message;
-        });
+        .catch(function(error){
+            vm.responseErrorMsg = 'Invalid Credentials!';
+        })
     }
   }
 

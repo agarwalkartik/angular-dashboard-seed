@@ -16,7 +16,7 @@
     $scope.$state = $state;
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-      authorize.checkAccess(event, toState, toParams);
+      // authorize.checkAccess(event, toState, toParams);
     });
 
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
@@ -29,5 +29,7 @@
 
     shortHistory.init($scope);
   }
+
+
 
 })();

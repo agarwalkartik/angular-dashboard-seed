@@ -1,0 +1,71 @@
+<ol class="breadcrumb">
+        <li><span class="text-muted">YOU ARE HERE</span></li>
+        <li class="active">Add School</li>
+      </ol>
+      <div class="row">
+        <div class="col-md-8">
+           <widget class="widget">
+              <h4 class="mt-0">Enter School Details</h4>
+              <form novalidate="" role="form" class="form-horizontal mt" ng-submit="">
+                 <div class="alert alert-danger ng-binding ng-hide" role="alert" ng-show="vm.responseErrorMsg"></div>
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label" for="school">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="vm.newSchool.title" />
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label" for="school">City</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" ng-model="vm.selectedCity" ng-change="vm.cityChanged()">
+                            <option ng-repeat="city in vm.cityList" ng-value="city.name">
+                                {{city.name}}
+                            </option>
+                        </select>
+                        
+                            <!-- <ui-select ng-model="vm.selectedSchool" id="school" on-select="vm.selectSchool($item);">
+                                <ui-select-match>
+                                        <span ng-bind="vm.selectedSchool.title"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="school in (vm.schoolList | filter: $select.search) track by school.id">
+                                        <span ng-bind="school.title"></span>
+                                    </ui-select-choices>
+                            </ui-select> -->
+                    </div>
+                 </div>
+                 <div class="form-group">
+                        <label class="col-sm-2 control-label" for="school">Locality</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" ng-model="vm.selectedLocality">
+                                <option ng-repeat="locality in vm.localityList" value="{{locality.id}}">
+                                    {{locality.name}}
+                                </option>
+                            </select>
+    
+                                <!-- <ui-select ng-model="vm.selectedSchool" id="school" on-select="vm.selectSchool($item);">
+                                    <ui-select-match>
+                                            <span ng-bind="vm.selectedSchool.title"></span>
+                                        </ui-select-match>
+                                        <ui-select-choices repeat="school in (vm.schoolList | filter: $select.search) track by school.id">
+                                            <span ng-bind="school.title"></span>
+                                        </ui-select-choices>
+                                </ui-select> -->
+                        </div>
+                     </div>
+
+                     <!-- <div class="form-group">
+                            <label class="col-sm-2 control-label" for="fos">FOS</label>
+                            <div class="col-sm-10">
+                                    <select class="form-control">
+                                        <option selected>Select name</option>
+                                            <option ng-repeat="fos in vm.fosList">
+                                                {{fos.name}}
+                                            </option>
+                                    </select>
+                            </div>
+                         </div> -->
+                 <div class="text-right"><button type="button" class="btn" ng-click="vm.cancel()">Cancel</button> <button type="submit" ng-click="vm.addSchool()" class="btn btn-primary">Save</button></div>
+              </form>
+           </widget>
+        </div>
+     </div>

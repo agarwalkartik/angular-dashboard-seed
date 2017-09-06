@@ -13,6 +13,7 @@
     }
   </style>
 
+  <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
   <!-- build:css({.tmp,src}) styles/app.css -->
   <!-- inject:css -->
   <link rel="stylesheet" href="app/index.css">
@@ -22,6 +23,10 @@
 <body data-ng-controller="App as vm">
 
 <div class="app"  data-ui-view></div>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/spin.js/1.2.7/spin.min.js"></script>
+<script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
 
 
 <!-- build:js scripts/vendor.js -->
@@ -35,6 +40,9 @@
 <script src="../bower_components/angular-animate/angular-animate.js"></script>
 <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="../bower_components/jquery-touchswipe/jquery.touchSwipe.js"></script>
+<script src="../bower_components/angular-loader/angular-loader.js"></script>
+<script src="../bower_components/firebase/firebase.js"></script>
+<script src="../bower_components/angularfire/dist/angularfire.js"></script>
 <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
@@ -47,11 +55,11 @@
 
 <script src="app/modules/profile/edit/edit.js"></script>
 
+<script src="app/modules/profile/auth/auth.js"></script>
+
 <script src="app/modules/post/post.module.js"></script>
 
 <script src="app/modules/post/list/posts.js"></script>
-
-<script src="app/modules/profile/auth/auth.js"></script>
 
 <script src="app/modules/post/edit/edit.js"></script>
 
@@ -69,17 +77,33 @@
 
 <script src="app/modules/common/modal/modal.js"></script>
 
+<script src="app/modules/school/school.routes.js"></script>
+
+<script src="app/modules/school/school.module.js"></script>
+
+<script src="app/modules/school/school.manageconfig.controller.js"></script>
+
+<script src="app/modules/school/school.data.factory.js"></script>
+
+<script src="app/modules/school/school.add.controller.js"></script>
+
 <script src="app/modules/post/delete_post_modal.js"></script>
 
 <script src="app/modules/flickr/flickr.module.js"></script>
 
 <script src="app/modules/flickr/flickr.js"></script>
 
-<script src="app/modules/dashboard/dashboard.js"></script>
+<script src="app/modules/ed-builds/ed-builds.routes.js"></script>
+
+<script src="app/modules/ed-builds/ed-builds.module.js"></script>
+
+<script src="app/modules/ed-builds/ed-builds.list.controller.js"></script>
 
 <script src="app/modules/data/data.module.js"></script>
 
 <script src="app/modules/data/posts.js"></script>
+
+<script src="app/modules/dashboard/dashboard.js"></script>
 
 <script src="app/modules/core/core.js"></script>
 
@@ -97,5 +121,18 @@
 <!-- angular templates will be automaticaly converted in js and inserted here -->
 <!-- endinject -->
 <!-- endbuild -->
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAa7hXsiov2FRH_7y2wBVMYfbRttbd09iE",
+    authDomain: "ed-builds.firebaseapp.com",
+    databaseURL: "https://ed-builds.firebaseio.com",
+    projectId: "ed-builds",
+    storageBucket: "ed-builds.appspot.com",
+    messagingSenderId: "436828625485"
+  };
+  firebase.initializeApp(config);
+</script>
 </body>
 </html>

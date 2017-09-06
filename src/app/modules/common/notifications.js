@@ -27,20 +27,7 @@
     notificationsRun.$inject = ['$rootScope', 'notificator', '$timeout'];
     function notificationsRun($rootScope, notificator, $timeout) {
         $rootScope.$on('$userLoggedIn', function() {
-            notificator.success('Hey there!');
-
-            $timeout(function(){
-                notificator.info('Welcome to this free angular dashboard seed project,' +
-                ' that you may use to bootstrap your next web app!', {
-                    timeOut: 10000
-                });
-            },3000);
-
-            $timeout(function(){
-                notificator.info('Btw, feel free to contribute to this project and help us kill the paid templates market ;)', {
-                    timeOut: 10000
-                });
-            },15000)
+            notificator.success('Logged In Successfully!');
         });
         $rootScope.$on('$userLoggedOut', function() {
             notificator.success('Logged out successfully');

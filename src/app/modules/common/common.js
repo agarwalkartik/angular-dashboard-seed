@@ -73,15 +73,20 @@
     };
   }
 
-  authenticationService.$inject = ['$http', '$rootScope', 'session'];
-  function authenticationService($http, $rootScope, session) {
+  authenticationService.$inject = ['$http', '$rootScope', 'session','config'];
+  function authenticationService($http, $rootScope, session, config) {
 
     this.login = function(user) {
-      return $http.post('/api/login', user)
-        .success(function(data) {
-          session.setCurrentUser(data);
-          $rootScope.$broadcast('$userLoggedIn');
-        });
+      // return $http.post('/api/login', user)
+      //   .success(function(data) {
+      //     session.setCurrentUser(data);
+      //     $rootScope.$broadcast('$userLoggedIn');
+      //   });
+      console.log(config)
+      return $http.post(config.server + '/edservice/v1/authentication/', user).then(function() {
+        localStorage.setItem('user', JSON.stringify(user))
+        $rootScope.$broadcast('$userLoggedIn');
+      })
     };
 
     this.logout = function() {
